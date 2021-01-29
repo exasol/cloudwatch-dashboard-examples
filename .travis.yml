@@ -1,0 +1,11 @@
+language: generic
+
+install:
+  - travis_retry npm install -g aws-cdk
+
+script:
+  - cdk synthesize
+
+cache:
+  directories:
+    - "$HOME/.m2"
