@@ -5,3 +5,4 @@
 ## Features / Enhancements
 
 * #1: Added example dashboard
+* #3: Added alarm

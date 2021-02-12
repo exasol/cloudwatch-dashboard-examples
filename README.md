@@ -10,11 +10,13 @@ If you just want to use the example dashboard, you can simply download the lates
 
 There you will have to set a Deployment Name. This is the name of your exasol installation you entered during the setup of the cloudwatch-adapter.
 
+Now you can view and edit your cloudwatch dashboard in the AWS Console. You can also deploy this template multiple times and build different dashboards for different use cases.
+
 ## Advanced Usage
 
 In this repository we define the dashboard by code using [AWS CDK](https://aws.amazon.com/cdk/). That allows us to define the dashboard in a very readable way.
 
-You can use this as a starting point for your own dashboards. For that you need to go through the following steps:
+You can use this as a starting point for your own dashboards. In contrast to changing the dashboard using the AWS Console that allows you for example to version your dashboards in Git, add a review process or simply copy the same dashboard for multiple Exasol deployments. For that you need to go through the following steps:
 
 * Checkout (or fork) this repository
 * Adapt the dashboard to your needs (modify `src/main/java/com/exasol/cloudwatchexampledashboard/CloudwatchDashboardExamplesStack.java`)
