@@ -2,7 +2,7 @@
 
 This project contains an [AWS CDK](https://aws.amazon.com/cdk/) template for an example CouldWatch dashboard that visualizes the metrics reported by the [Exasol – Cloud Watch adapter](https://github.com/exasol/cloudwatch-adapter).
 
-This dashboard should fasten your start with Exasol and CloudWatch.
+This dashboard should get you started with Exasol and CloudWatch integration.
 
 ## Quick Usage
 
@@ -17,7 +17,7 @@ In this repository we define the dashboard by code using [AWS CDK](https://aws.a
 You can use this as a starting point for your own dashboards. For that you need to go through the following steps:
 
 * Checkout (or fork) this repository
-* Adopt the Dashboard to your needs (modify `src/main/java/com/exasol/cloudwatchexampledashboard/CloudwatchDashboardExamplesStack.java`)
+* Adapt the dashboard to your needs (modify `src/main/java/com/exasol/cloudwatchexampledashboard/CloudwatchDashboardExamplesStack.java`)
 * [Install the AWS CDK](https://docs.aws.amazon.com/cdk/latest/guide/getting_started.html#getting_started_install)
 * Deploy your dashboard using
     ```shell
