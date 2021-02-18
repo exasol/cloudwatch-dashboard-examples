@@ -49,20 +49,18 @@ public class CloudwatchDashboardExamplesStack extends Stack {
                 networkIoWidget(), //
                 usageWidget(queriesMetric, usersMetric), //
                 recommendedDbRamSizeWidget(), //
-                currentQueriesAndUsersWidget(queriesMetric, usersMetric), //
-                currentDbSizeWidget());
+                currentDbSizeWidget(), //
+                currentQueriesAndUsersWidget(queriesMetric, usersMetric));
 
         addTempdbRamAlarm();
     }
 
     private void addTempdbRamAlarm() {
-        Alarm.Builder
-                .create(this, "Temp DB RAM Alarm").metric(
-                        MathExpression.Builder.create().expression("recommendedRam / ram")
-                                .usingMetrics(Map.of("recommendedRam",
-                                        getExasolMetricBuilder().metricName("TEMP_DB_RAM").build(), "ram",
-                                        getExasolMetricBuilder().metricName("DB_RAM_SIZE").build()))
-                                .period(Duration.minutes(5)).label("recommended ram to available ram ratio").build())
+        Alarm.Builder.create(this, "Temp DB RAM Alarm")
+                .metric(MathExpression.Builder.create().expression("(tem_db_ram/1000) / ram")
+                        .usingMetrics(Map.of("tem_db_ram", getExasolMetricBuilder().metricName("TEMP_DB_RAM").build(),
+                                "ram", getExasolMetricBuilder().metricName("DB_RAM_SIZE").build()))
+                        .period(Duration.minutes(5)).label("temporary db ram to available ram ratio").build())
                 .threshold(0.7).comparisonOperator(ComparisonOperator.GREATER_THAN_THRESHOLD).evaluationPeriods(1)
                 .datapointsToAlarm(1).alarmName("Temp DB RAM Alarm")
                 .alarmDescription("The temporary db ram consumed more that 70% of the available memory.")
@@ -110,7 +108,7 @@ public class CloudwatchDashboardExamplesStack extends Stack {
 
     private SingleValueWidget currentQueriesAndUsersWidget(final Metric queriesMetric, final Metric usersMetric) {
         return SingleValueWidget.Builder.create().title("Current Queries and Users").setPeriodToTimeRange(false)
-                .metrics(List.of(queriesMetric, usersMetric)).width(9).build();
+                .metrics(List.of(queriesMetric, usersMetric)).width(6).build();
     }
 
     private SingleValueWidget currentDbSizeWidget() {
@@ -133,7 +131,7 @@ public class CloudwatchDashboardExamplesStack extends Stack {
                 getExasolMetricBuilder().metricName("OBJECT_COUNT").label("Object count").period(Duration.hours(1))
                         .build(), //
                 getExasolMetricBuilder().metricName("NODES").label("Node count").period(Duration.days(1)).build() //
-        )).setPeriodToTimeRange(false).width(21).build();
+        )).setPeriodToTimeRange(false).width(12).height(6).build();
     }
 
     private Metric.Builder getExasolMetricBuilder() {
