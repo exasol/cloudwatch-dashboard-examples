@@ -6,3 +6,4 @@
 
 * #1: Added example dashboard
 * #3: Added alarm
+* #5: Added screenshot
