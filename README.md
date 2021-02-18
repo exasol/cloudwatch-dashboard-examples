@@ -4,6 +4,8 @@ This project contains an [AWS CDK](https://aws.amazon.com/cdk/) template for an 
 
 This dashboard should get you started with Exasol and CloudWatch integration.
 
+![Exasol CloudWatch dashboard example](doc/images/exasolCloudwatchDashboard.png)
+
 ## Quick Usage
 
 If you just want to use the example dashboard, you can simply download the latest AWS CloudFormation template in the [releases section](https://github.com/exasol/cloudwatch-dashboard-examples/releases/) and run it in cloudformation.
