@@ -62,6 +62,7 @@
                     <excludedFiles>
                         <excludedFile>src/test/resources/logging.properties</excludedFile>
                         <excludedFile>.github/workflows/release_droid_*</excludedFile>
+                        <excludedFile>.github/workflows/ci-build-next-java.yml</excludedFile>
                     </excludedFiles>
                 </configuration>
             </plugin>

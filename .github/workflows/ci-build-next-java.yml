@@ -25,8 +25,3 @@ jobs:
             ${{ runner.os }}-maven-
       - name: Run tests and build with Maven
         run: mvn --batch-mode --update-snapshots clean package -DtrimStackTrace=false
-      - name: Publish Test Report
-        uses: scacap/action-surefire-report@v1
-        if: ${{ always() }}
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
