@@ -12,5 +12,5 @@ Code name: Dependency Updates on Initial Release
 ### Plugin Dependency Updates
 
 * Updated `com.exasol:error-code-crawler-maven-plugin:0.1.1` to `0.6.0`
-* Updated `com.exasol:project-keeper-maven-plugin:0.5.0` to `1.3.1`
+* Updated `com.exasol:project-keeper-maven-plugin:0.5.0` to `1.3.2`
 * Added `io.github.zlika:reproducible-build-maven-plugin:0.13`
