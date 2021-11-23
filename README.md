@@ -1,5 +1,19 @@
 # Exasol CloudWatch Example Dashboard
 
+[![Build Status](https://github.com/exasol/cloudwatch-dashboard-examples/actions/workflows/ci-build.yml/badge.svg)](https://github.com/exasol/cloudwatch-dashboard-examples/actions/workflows/ci-build.yml)
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=com.exasol%3Acloudwatch-dashboard-examples&metric=alert_status)](https://sonarcloud.io/dashboard?id=com.exasol%3Acloudwatch-dashboard-examples)
+
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=com.exasol%3Acloudwatch-dashboard-examples&metric=security_rating)](https://sonarcloud.io/dashboard?id=com.exasol%3Acloudwatch-dashboard-examples)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.exasol%3Acloudwatch-dashboard-examples&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=com.exasol%3Acloudwatch-dashboard-examples)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=com.exasol%3Acloudwatch-dashboard-examples&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=com.exasol%3Acloudwatch-dashboard-examples)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=com.exasol%3Acloudwatch-dashboard-examples&metric=sqale_index)](https://sonarcloud.io/dashboard?id=com.exasol%3Acloudwatch-dashboard-examples)
+
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=com.exasol%3Acloudwatch-dashboard-examples&metric=code_smells)](https://sonarcloud.io/dashboard?id=com.exasol%3Acloudwatch-dashboard-examples)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=com.exasol%3Acloudwatch-dashboard-examples&metric=coverage)](https://sonarcloud.io/dashboard?id=com.exasol%3Acloudwatch-dashboard-examples)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=com.exasol%3Acloudwatch-dashboard-examples&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=com.exasol%3Acloudwatch-dashboard-examples)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=com.exasol%3Acloudwatch-dashboard-examples&metric=ncloc)](https://sonarcloud.io/dashboard?id=com.exasol%3Acloudwatch-dashboard-examples)
+
 This project contains an [AWS CDK](https://aws.amazon.com/cdk/) template for an example CouldWatch dashboard that visualizes the metrics reported by the [Exasol – Cloud Watch adapter](https://github.com/exasol/cloudwatch-adapter).
 
 This dashboard should get you started with Exasol and CloudWatch integration.
@@ -32,3 +46,4 @@ You can use this as a starting point for your own dashboards. In contrast to cha
 ## Additional Information
 
 * [Changelog](doc/changes/changelog.md)
+* [Dependencies](dependencies.md)

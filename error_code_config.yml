@@ -1,0 +1,5 @@
+error-tags:
+  CDE:
+    packages:
+      - com.exasol.cloudwatchexampledashboard
+    highest-index: 0

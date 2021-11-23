@@ -10,3 +10,20 @@ target
 .cdk.staging
 cdk.out
 
+
+.DS_Store
+*.swp
+local
+.dbeaver*
+**/*.log
+.directory
+venv/
+.cache
+dependency-reduced-pom.xml
+pom.xml.versionsBackup
+~*
+*.lock
+*.bak
+*.orig
+*.old
+*.md.html
