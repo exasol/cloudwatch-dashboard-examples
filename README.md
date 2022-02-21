@@ -35,13 +35,24 @@ In this repository we define the dashboard by code using [AWS CDK](https://aws.a
 You can use this as a starting point for your own dashboards. In contrast to changing the dashboard using the AWS Console that allows you for example to version your dashboards in Git, add a review process or simply copy the same dashboard for multiple Exasol deployments. For that you need to go through the following steps:
 
 * Checkout (or fork) this repository
-* Adapt the dashboard to your needs (modify `src/main/java/com/exasol/cloudwatchexampledashboard/CloudwatchDashboardExamplesStack.java`)
+* Adapt the dashboard to your needs (modify [`src/main/java/com/exasol/cloudwatchexampledashboard/CloudwatchDashboardExamplesStack.java`](src/main/java/com/exasol/cloudwatchexampledashboard/CloudwatchDashboardExamplesStack.java))
 * [Install the AWS CDK](https://docs.aws.amazon.com/cdk/latest/guide/getting_started.html#getting_started_install)
 * Deploy your dashboard using
     ```shell
      cdk deploy --parameters deploymentName=<YOUR DEPLOYMENT NAME>
     ```
   (Don't forget to replace `<YOUR DEPLOYMENT NAME>` with the value you configured during the CloudWatch-adapter setup)
+
+## Injecting Metrics Values for Testing
+
+To test your dashboard and alarms you can manually inject metrics values by executing commands like these:
+
+```sh
+aws cloudwatch put-metric-data --namespace "Exasol" --dimensions "Cluster Name=MAIN,Deployment=<YOUR DEPLOYMENT NAME>" --unit Seconds --value 30 --metric-name "BACKUP_DURATION"
+aws cloudwatch put-metric-data --namespace "Exasol" --dimensions "Cluster Name=MAIN,Deployment=<YOUR DEPLOYMENT NAME>" --unit Count --value 1 --metric-name "BACKUP_START"      
+aws cloudwatch put-metric-data --namespace "Exasol" --dimensions "Cluster Name=MAIN,Deployment=<YOUR DEPLOYMENT NAME>" --unit Count --value 1 --metric-name "BACKUP_END"  
+aws cloudwatch put-metric-data --namespace "Exasol" --dimensions "Cluster Name=MAIN,Deployment=<YOUR DEPLOYMENT NAME>" --unit Count --value 1 --metric-name "BACKUP_BACKUP_ABORTED"
+```
 
 ## Additional Information
 
