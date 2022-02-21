@@ -1,10 +1,15 @@
-# cloudwatch-dashboard-examples 0.2.0, released 2022-??-??
+# cloudwatch-dashboard-examples 0.2.0, released 2022-02-??
 
-Code name:
+Code name: Backup metrics and alarms
+
+## Summary
+
+In this release we added backup metrics for successful/failed backups and backup duration. We also added alarms for failed backups and missing succesful backups.
 
 ## Features
 
-* ISSUE_NUMBER: description
+* #11: Added backup metrics and alarms
+
 ## Dependency Updates
 
 ### Compile Dependency Updates
