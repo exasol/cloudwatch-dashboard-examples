@@ -30,7 +30,6 @@
 | [Maven Site Plugin 3][34]                               | [The Apache Software License, Version 2.0][7] |
 
 [8]: https://github.com/exasol/project-keeper-maven-plugin
-[18]: https://www.eclemma.org/jacoco/index.html
 [22]: http://zlika.github.io/reproducible-build-maven-plugin
 [28]: http://maven.apache.org/plugins/maven-jar-plugin/
 [1]: http://www.apache.org/licenses/LICENSE-2.0
@@ -51,3 +50,4 @@
 [26]: http://maven.apache.org/plugins/maven-resources-plugin/
 [0]: https://github.com/aws/aws-cdk
 [20]: https://github.com/exasol/error-code-crawler-maven-plugin
+[18]: https://www.jacoco.org/jacoco/trunk/doc/maven.html
