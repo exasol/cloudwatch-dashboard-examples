@@ -1,14 +1,14 @@
 # cloudwatch-dashboard-examples 0.2.0, released 2022-02-22
 
-Code name: Backup metrics and alarms
+Code name: Metrics and alarms for Exasol backups
 
 ## Summary
 
-In this release we added backup metrics for successful/failed backups and backup duration. We also added alarms for failed backups and missing succesful backups.
+In this release we added metrics for successful/failed backups and backup duration. We also added alarms for failed backups and missing succesful backups.
 
 ## Features
 
-* #11: Added backup metrics and alarms
+* #11: Added metrics and alarms for Exasol backups
 
 ## Dependency Updates
 
