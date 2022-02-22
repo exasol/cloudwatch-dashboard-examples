@@ -10,12 +10,12 @@ import software.amazon.awscdk.services.cloudwatch.*;
  * This stack creates an CloudWatch dashboard with graphs for the metrics reported by the exasol cloudwatch-adapter.
  */
 public class CloudwatchDashboardExamplesStack extends Stack {
-    private final CfnParameter deploymentName;
+    private static final String NAMESPACE = "Exasol";
     private final Map<String, String> dimensions;
 
     /**
      * Create a new instance of {@link CloudwatchDashboardExamplesStack}.
-     * 
+     *
      * @param scope parent scope
      * @param id    stack id
      */
@@ -32,16 +32,26 @@ public class CloudwatchDashboardExamplesStack extends Stack {
      */
     public CloudwatchDashboardExamplesStack(final Construct scope, final String id, final StackProps props) {
         super(scope, id, props);
-        this.deploymentName = CfnParameter.Builder.create(this, "deploymentName").type("String")
+        final CfnParameter deploymentName = CfnParameter.Builder.create(this, "deploymentName").type("String")
                 .description("Deployment name matching the one configured in the cloud watch adapter.").build();
-        this.dimensions = Map.of("Cluster Name", "MASTER", "Deployment", this.deploymentName.getValueAsString());
+        final CfnParameter clusterName = CfnParameter.Builder.create(this, "clusterName").type("String")
+                .description("Cluster name of the Exasol database, e.g. 'MAIN'.").defaultValue("MAIN").build();
+        this.dimensions = Map.of("Cluster Name", clusterName.getValueAsString(), "Deployment",
+                deploymentName.getValueAsString());
 
-        final Dashboard dashboard = Dashboard.Builder.create(this, "Exasol Dashboard").build();
+        final Dashboard dashboard = Dashboard.Builder.create(this, "Exasol Dashboard").dashboardName(
+                "Exasol-Deployment_" + deploymentName.getValueAsString() + "-Cluster_" + clusterName.getValueAsString())
+                .build();
 
         final Metric queriesMetric = getExasolMetricBuilder().metricName("QUERIES")
                 .label("Parallel running queries (5 min MAX)").statistic("Maximum").build();
         final Metric usersMetric = getExasolMetricBuilder().metricName("USERS").label("Users (5 min MAX)")
                 .statistic("Maximum").build();
+
+        final Metric eventBackupStart = eventMetric("BACKUP_START", "Backup started");
+        final Metric eventBackupEnd = eventMetric("BACKUP_END", "Backup finished successfully");
+        final Metric eventBackupAborted = eventMetric("BACKUP_ABORTED", "Backup failed or aborted");
+
         dashboard.addWidgets(//
                 cpuWidget(), //
                 tempDbRamWidget(), //
@@ -50,9 +60,12 @@ public class CloudwatchDashboardExamplesStack extends Stack {
                 usageWidget(queriesMetric, usersMetric), //
                 recommendedDbRamSizeWidget(), //
                 currentDbSizeWidget(), //
-                currentQueriesAndUsersWidget(queriesMetric, usersMetric));
+                currentQueriesAndUsersWidget(queriesMetric, usersMetric), //
+                backupEvents(List.of(eventBackupStart, eventBackupEnd, eventBackupAborted)));
 
         addTempdbRamAlarm();
+        addBackupDidNotSucceedAlarms(eventBackupEnd);
+        addBackupFailedAlarms(eventBackupAborted);
     }
 
     private void addTempdbRamAlarm() {
@@ -108,7 +121,7 @@ public class CloudwatchDashboardExamplesStack extends Stack {
 
     private SingleValueWidget currentQueriesAndUsersWidget(final Metric queriesMetric, final Metric usersMetric) {
         return SingleValueWidget.Builder.create().title("Current Queries and Users").setPeriodToTimeRange(false)
-                .metrics(List.of(queriesMetric, usersMetric)).width(6).build();
+                .metrics(List.of(queriesMetric, usersMetric)).width(6).height(6).build();
     }
 
     private SingleValueWidget currentDbSizeWidget() {
@@ -131,10 +144,36 @@ public class CloudwatchDashboardExamplesStack extends Stack {
                 getExasolMetricBuilder().metricName("OBJECT_COUNT").label("Object count").period(Duration.hours(1))
                         .build(), //
                 getExasolMetricBuilder().metricName("NODES").label("Node count").period(Duration.days(1)).build() //
-        )).setPeriodToTimeRange(false).width(12).height(6).build();
+        )).setPeriodToTimeRange(false).width(12).height(8).build();
+    }
+
+    private GraphWidget backupEvents(final List<? extends IMetric> events) {
+        return GraphWidget.Builder.create().title("Backup Events").left(events)
+                .right(List.of(getExasolMetricBuilder().metricName("BACKUP_DURATION").label("Backup duration")
+                        .statistic("Avg").period(Duration.minutes(1)).build()))
+                .build();
+    }
+
+    private Metric eventMetric(final String metricName, final String label) {
+        return getExasolMetricBuilder().metricName(metricName).label(label).statistic("SampleCount")
+                .period(Duration.minutes(1)).build();
+    }
+
+    private void addBackupDidNotSucceedAlarms(final Metric eventBackupEnd) {
+        Alarm.Builder.create(this, "backup_not_suceeded").metric(eventBackupEnd).threshold(1)
+                .comparisonOperator(ComparisonOperator.LESS_THAN_THRESHOLD).evaluationPeriods(1).datapointsToAlarm(1)
+                .alarmName("Backup did not succeed").alarmDescription("Backup did not succeed for more than one minute")
+                .treatMissingData(TreatMissingData.BREACHING).actionsEnabled(false).build();
+    }
+
+    private void addBackupFailedAlarms(final Metric eventBackupAborted) {
+        Alarm.Builder.create(this, "backup_failed").metric(eventBackupAborted).threshold(0)
+                .comparisonOperator(ComparisonOperator.GREATER_THAN_THRESHOLD).evaluationPeriods(1).datapointsToAlarm(1)
+                .alarmName("Backup failed").alarmDescription("Backup failed within one minute")
+                .treatMissingData(TreatMissingData.NOT_BREACHING).actionsEnabled(false).build();
     }
 
     private Metric.Builder getExasolMetricBuilder() {
-        return Metric.Builder.create().namespace("Exasol").dimensions(this.dimensions);
+        return Metric.Builder.create().namespace(NAMESPACE).dimensionsMap(this.dimensions);
     }
 }

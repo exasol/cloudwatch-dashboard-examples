@@ -5,7 +5,8 @@ target
 .idea
 .vscode
 *.iml
-
+.settings/org.eclipse.m2e.core.prefs
+.settings/org.eclipse.core.resources.prefs
 # CDK asset staging directory
 .cdk.staging
 cdk.out
