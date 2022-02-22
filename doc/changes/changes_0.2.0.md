@@ -17,6 +17,10 @@ In this release we added backup metrics for successful/failed backups and backup
 * Updated `software.amazon.awscdk:cloudwatch:1.133.0` to `1.145.0`
 * Updated `software.amazon.awscdk:core:1.133.0` to `1.145.0`
 
+### Test Dependency Updates
+
+* Added `org.junit.jupiter:junit-jupiter:5.8.2`
+
 ### Plugin Dependency Updates
 
 * Updated `com.exasol:error-code-crawler-maven-plugin:0.6.0` to `1.0.0`
