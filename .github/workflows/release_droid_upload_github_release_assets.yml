@@ -27,19 +27,19 @@ jobs:
       - name: Install CDK
         run: npm install -g aws-cdk
       - name: Synthesize
-        run: cdk synthesize > exasolCloudwatchDashboard.yaml
+        run: cdk synthesize --json > exasolCloudwatchDashboard.json
       - name: Generate sha256sum files
-        run: sha256sum exasolCloudwatchDashboard.yaml > exasolCloudwatchDashboard.yaml.sha256
+        run: sha256sum exasolCloudwatchDashboard.json > exasolCloudwatchDashboard.json.sha256
       - name: Upload assets to the GitHub release draft
         uses: shogo82148/actions-upload-release-asset@v1
         with:
           upload_url: ${{ github.event.inputs.upload_url }}
-          asset_path: exasolCloudwatchDashboard.yaml
+          asset_path: exasolCloudwatchDashboard.json
       - name: Upload sha256sum files
         uses: shogo82148/actions-upload-release-asset@v1
         with:
           upload_url: ${{ github.event.inputs.upload_url }}
-          asset_path: exasolCloudwatchDashboard.yaml.sha256
+          asset_path: exasolCloudwatchDashboard.json.sha256
       - name: Upload error-code-report
         uses: shogo82148/actions-upload-release-asset@v1
         with:

@@ -14,7 +14,12 @@ jobs:
         with:
           fetch-depth: 0
       - name: Test synthesize
-        run: cdk synthesize
+        run: cdk synthesize --json > exasolCloudwatchDashboard.json
+      - name: Upload cloudformation template
+        uses: actions/upload-artifact@v2
+        with:
+          name: cloudformation-template
+          path: exasolCloudwatchDashboard.json
   build:
     runs-on: ubuntu-latest
     steps:
