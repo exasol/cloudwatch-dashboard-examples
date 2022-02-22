@@ -39,7 +39,7 @@ You can use this as a starting point for your own dashboards. In contrast to cha
 * [Install the AWS CDK](https://docs.aws.amazon.com/cdk/latest/guide/getting_started.html#getting_started_install)
 * Deploy your dashboard using
     ```shell
-     cdk deploy --parameters deploymentName=<YOUR DEPLOYMENT NAME>
+     cdk deploy --parameters deploymentName=<YOUR DEPLOYMENT NAME> --parameters clusterName=MAIN
     ```
   (Don't forget to replace `<YOUR DEPLOYMENT NAME>` with the value you configured during the CloudWatch-adapter setup)
 
@@ -51,7 +51,7 @@ To test your dashboard and alarms you can manually inject metrics values by exec
 aws cloudwatch put-metric-data --namespace "Exasol" --dimensions "Cluster Name=MAIN,Deployment=<YOUR DEPLOYMENT NAME>" --unit Seconds --value 30 --metric-name "BACKUP_DURATION"
 aws cloudwatch put-metric-data --namespace "Exasol" --dimensions "Cluster Name=MAIN,Deployment=<YOUR DEPLOYMENT NAME>" --unit Count --value 1 --metric-name "BACKUP_START"      
 aws cloudwatch put-metric-data --namespace "Exasol" --dimensions "Cluster Name=MAIN,Deployment=<YOUR DEPLOYMENT NAME>" --unit Count --value 1 --metric-name "BACKUP_END"  
-aws cloudwatch put-metric-data --namespace "Exasol" --dimensions "Cluster Name=MAIN,Deployment=<YOUR DEPLOYMENT NAME>" --unit Count --value 1 --metric-name "BACKUP_BACKUP_ABORTED"
+aws cloudwatch put-metric-data --namespace "Exasol" --dimensions "Cluster Name=MAIN,Deployment=<YOUR DEPLOYMENT NAME>" --unit Count --value 1 --metric-name "BACKUP_ABORTED"
 ```
 
 ## Additional Information

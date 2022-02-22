@@ -11,7 +11,6 @@ import software.amazon.awscdk.services.cloudwatch.*;
  */
 public class CloudwatchDashboardExamplesStack extends Stack {
     private static final String NAMESPACE = "Exasol";
-    private final CfnParameter deploymentName;
     private final Map<String, String> dimensions;
 
     /**
@@ -33,11 +32,16 @@ public class CloudwatchDashboardExamplesStack extends Stack {
      */
     public CloudwatchDashboardExamplesStack(final Construct scope, final String id, final StackProps props) {
         super(scope, id, props);
-        this.deploymentName = CfnParameter.Builder.create(this, "deploymentName").type("String")
+        final CfnParameter deploymentName = CfnParameter.Builder.create(this, "deploymentName").type("String")
                 .description("Deployment name matching the one configured in the cloud watch adapter.").build();
-        this.dimensions = Map.of("Cluster Name", "MAIN", "Deployment", this.deploymentName.getValueAsString());
+        final CfnParameter clusterName = CfnParameter.Builder.create(this, "clusterName").type("String")
+                .description("Cluster name of the Exasol database, e.g. 'MAIN'.").defaultValue("MAIN").build();
+        this.dimensions = Map.of("Cluster Name", clusterName.getValueAsString(), "Deployment",
+                deploymentName.getValueAsString());
 
-        final Dashboard dashboard = Dashboard.Builder.create(this, "Exasol Dashboard").build();
+        final Dashboard dashboard = Dashboard.Builder.create(this, "Exasol Dashboard").dashboardName(
+                "Exasol-Deployment_" + deploymentName.getValueAsString() + "-Cluster_" + clusterName.getValueAsString())
+                .build();
 
         final Metric queriesMetric = getExasolMetricBuilder().metricName("QUERIES")
                 .label("Parallel running queries (5 min MAX)").statistic("Maximum").build();
