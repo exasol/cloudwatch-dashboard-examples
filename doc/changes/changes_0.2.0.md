@@ -1,4 +1,4 @@
-# cloudwatch-dashboard-examples 0.2.0, released 2022-02-??
+# cloudwatch-dashboard-examples 0.2.0, released 2022-02-22
 
 Code name: Backup metrics and alarms
 
