@@ -48,9 +48,9 @@ public class CloudwatchDashboardExamplesStack extends Stack {
         final Metric usersMetric = getExasolMetricBuilder().metricName("USERS").label("Users (5 min MAX)")
                 .statistic("Maximum").build();
 
-        final Metric eventBackupStart = eventMetric("BACKUP_START", "Backup started");
-        final Metric eventBackupEnd = eventMetric("BACKUP_END", "Backup finished successfully");
-        final Metric eventBackupAborted = eventMetric("BACKUP_ABORTED", "Backup failed or aborted");
+        final Metric eventBackupStart = eventMetric("EVENT_BACKUP_START", "Backup started");
+        final Metric eventBackupEnd = eventMetric("EVENT_BACKUP_END", "Backup finished successfully");
+        final Metric eventBackupAborted = eventMetric("EVENT_BACKUP_ABORTED", "Backup failed or aborted");
 
         dashboard.addWidgets(//
                 cpuWidget(), //

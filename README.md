@@ -49,9 +49,9 @@ To test your dashboard and alarms you can manually inject metrics values by exec
 
 ```sh
 aws cloudwatch put-metric-data --namespace "Exasol" --dimensions "Cluster Name=MAIN,Deployment=<YOUR DEPLOYMENT NAME>" --unit Seconds --value 30 --metric-name "BACKUP_DURATION"
-aws cloudwatch put-metric-data --namespace "Exasol" --dimensions "Cluster Name=MAIN,Deployment=<YOUR DEPLOYMENT NAME>" --unit Count --value 1 --metric-name "BACKUP_START"      
-aws cloudwatch put-metric-data --namespace "Exasol" --dimensions "Cluster Name=MAIN,Deployment=<YOUR DEPLOYMENT NAME>" --unit Count --value 1 --metric-name "BACKUP_END"  
-aws cloudwatch put-metric-data --namespace "Exasol" --dimensions "Cluster Name=MAIN,Deployment=<YOUR DEPLOYMENT NAME>" --unit Count --value 1 --metric-name "BACKUP_ABORTED"
+aws cloudwatch put-metric-data --namespace "Exasol" --dimensions "Cluster Name=MAIN,Deployment=<YOUR DEPLOYMENT NAME>" --unit Count --value 1 --metric-name "EVENT_BACKUP_START"
+aws cloudwatch put-metric-data --namespace "Exasol" --dimensions "Cluster Name=MAIN,Deployment=<YOUR DEPLOYMENT NAME>" --unit Count --value 1 --metric-name "EVENT_BACKUP_END"
+aws cloudwatch put-metric-data --namespace "Exasol" --dimensions "Cluster Name=MAIN,Deployment=<YOUR DEPLOYMENT NAME>" --unit Count --value 1 --metric-name "EVENT_BACKUP_ABORTED"
 ```
 
 ## Additional Information
