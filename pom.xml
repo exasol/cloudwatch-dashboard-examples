@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.exasol</groupId>
     <artifactId>cloudwatch-dashboard-examples</artifactId>
-    <version>0.2.0</version>
+    <version>0.2.1</version>
     <name>cloudwatch-dashboard-examples</name>
     <description>Example dashboards for the Exasol database's CloudWatch metrics</description>
     <properties>
