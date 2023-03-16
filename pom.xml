@@ -3,12 +3,12 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.exasol</groupId>
     <artifactId>cloudwatch-dashboard-examples</artifactId>
-    <version>0.2.2</version>
+    <version>0.2.3</version>
     <name>cloudwatch-dashboard-examples</name>
     <description>Example dashboards for the Exasol database's CloudWatch metrics</description>
     <url>https://github.com/exasol/cloudwatch-dashboard-examples/</url>
     <properties>
-        <cdk.version>1.161.0</cdk.version>
+        <cdk.version>1.197.0</cdk.version>
     </properties>
     <dependencies>
         <!-- AWS Cloud Development Kit -->
@@ -25,7 +25,7 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>5.8.2</version>
+            <version>5.9.2</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -34,7 +34,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
-                <version>3.0.0</version>
+                <version>3.1.0</version>
                 <configuration>
                     <mainClass>com.exasol.cloudwatchexampledashboard.CloudwatchDashboardExamplesApp</mainClass>
                 </configuration>
@@ -42,7 +42,7 @@
             <plugin>
                 <groupId>com.exasol</groupId>
                 <artifactId>project-keeper-maven-plugin</artifactId>
-                <version>2.4.6</version>
+                <version>2.9.4</version>
                 <executions>
                     <execution>
                         <goals>
@@ -56,12 +56,9 @@
                 <artifactId>ossindex-maven-plugin</artifactId>
                 <configuration>
                     <excludeVulnerabilityIds>
-                        <!-- com.fasterxml.jackson.core:jackson-databind:2.11.4 is a transitive dependency of software.amazon.awscdk:core:1.161.0.
-                             Upgrading to a later version breaks at runtime. -->
-                        <!-- We don't accept JSON input from other sources, so we are not affected by https://ossindex.sonatype.org/vulnerability/CVE-2020-36518 -->
-                        <exclude>CVE-2020-36518</exclude>
-                        <!-- We don't use JDK serialization, so we are not affected by https://ossindex.sonatype.org/vulnerability/sonatype-2021-4682 -->
-                        <exclude>sonatype-2021-4682</exclude>
+                        <!-- Transitive dependency com.fasterxml.jackson.core:jackson-core:jar:2.13.5 of software.amazon.awscdk:core:jar:1.197.0.
+                            CWE-400: Uncontrolled Resource Consumption is acceptable as this project does not accept input from untrusted sources. -->
+                        <exclude>sonatype-2022-6438</exclude>
                     </excludeVulnerabilityIds>
                 </configuration>
             </plugin>
@@ -70,7 +67,7 @@
     <parent>
         <artifactId>cloudwatch-dashboard-examples-generated-parent</artifactId>
         <groupId>com.exasol</groupId>
-        <version>0.2.2</version>
+        <version>0.2.3</version>
         <relativePath>pk_generated_parent.pom</relativePath>
     </parent>
 </project>
