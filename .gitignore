@@ -3,10 +3,10 @@ target
 .classpath
 .project
 .idea
-.vscode
 *.iml
 .settings/org.eclipse.m2e.core.prefs
 .settings/org.eclipse.core.resources.prefs
+.settings/org.eclipse.jdt.apt.core.prefs
 # CDK asset staging directory
 .cdk.staging
 cdk.out
