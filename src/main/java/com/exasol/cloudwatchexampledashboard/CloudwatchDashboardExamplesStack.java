@@ -3,8 +3,9 @@ package com.exasol.cloudwatchexampledashboard;
 import java.util.List;
 import java.util.Map;
 
-import software.amazon.awscdk.core.*;
+import software.amazon.awscdk.*;
 import software.amazon.awscdk.services.cloudwatch.*;
+import software.constructs.Construct;
 
 /**
  * This stack creates an CloudWatch dashboard with graphs for the metrics reported by the exasol cloudwatch-adapter.
