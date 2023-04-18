@@ -1,6 +1,6 @@
 package com.exasol.cloudwatchexampledashboard;
 
-import software.amazon.awscdk.core.App;
+import software.amazon.awscdk.App;
 
 /**
  * This class is the main entry point of the template. You can find the relevant template parts, however, in
