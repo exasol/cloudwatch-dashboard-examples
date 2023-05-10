@@ -4,7 +4,7 @@ Code name: Dependency Updates
 
 ## Summary
 
-This release updates dependencies to fix vulnerabilities CVE-2020-36518 and [sonatype-2021-4682](https://ossindex.sonatype.org/vulnerability/sonatype-2021-4682).
+This release updates dependencies to fix vulnerabilities CVE-2020-36518 and sonatype-2021-4682.
 
 ## Features
 
