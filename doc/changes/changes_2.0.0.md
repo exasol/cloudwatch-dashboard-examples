@@ -28,8 +28,7 @@ This release updates dependencies and requires Java 17.
 * Updated `org.apache.maven.plugins:maven-clean-plugin:3.2.0` to `3.5.0`
 * Updated `org.apache.maven.plugins:maven-compiler-plugin:3.11.0` to `3.15.0`
 * Updated `org.apache.maven.plugins:maven-enforcer-plugin:3.3.0` to `3.6.2`
-* Updated `org.apache.maven.plugins:maven-install-plugin:3.1.2` to `3.1.4`
-* Updated `org.apache.maven.plugins:maven-resources-plugin:3.3.1` to `3.5.0`
+* Updated `org.apache.maven.plugins:maven-resources-plugin:3.4.0` to `3.5.0`
 * Updated `org.apache.maven.plugins:maven-site-plugin:3.12.1` to `3.21.0`
 * Updated `org.apache.maven.plugins:maven-surefire-plugin:3.0.0` to `3.5.5`
 * Added `org.apache.maven.plugins:maven-toolchains-plugin:3.2.0`
