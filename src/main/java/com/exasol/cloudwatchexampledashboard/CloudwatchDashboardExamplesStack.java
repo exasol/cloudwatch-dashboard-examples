@@ -31,6 +31,7 @@ public class CloudwatchDashboardExamplesStack extends Stack {
      * @param id    stack id
      * @param props properties
      */
+    @SuppressWarnings("this-escape") // Required for CDK API
     public CloudwatchDashboardExamplesStack(final Construct scope, final String id, final StackProps props) {
         super(scope, id, props);
         final CfnParameter deploymentName = CfnParameter.Builder.create(this, "deploymentName").type("String")
