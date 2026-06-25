@@ -1,9 +1,42 @@
 sources:
   - type: maven
     path: pom.xml
-excludes:
-  - "E-PK-CORE-17: Missing required file: 'src/test/resources/logging.properties'"
-  - "E-PK-CORE-17: Missing required file: '.github/workflows/release_droid_prepare_original_checksum.yml'"
-  - "E-PK-CORE-17: Missing required file: '.github/workflows/release_droid_print_quick_checksum.yml'"
-  - "E-PK-CORE-18: Outdated content: '.github/workflows/release_droid_upload_github_release_assets.yml'"
-  - "E-PK-CORE-18: Outdated content: '.github/workflows/ci-build.yml'"
+    artifacts:
+    - target/exasolCloudwatchDashboard.json
+
+build:
+  workflows:
+  - name: ci-build.yml
+    stepCustomizations:
+      - action: INSERT_AFTER
+        job: build-and-test
+        stepId: setup-java
+        content:
+          name: Install CDK
+          id: install-cdk
+          run: npm install -g aws-cdk
+      - action: INSERT_AFTER
+        job: build-and-test
+        stepId: build-pk-verify
+        content:
+          name: Synthesize CloudFormation template
+          id: synthesize
+          run: cdk synthesize --json > target/exasolCloudwatchDashboard.json
+
+  - name: release.yml
+    stepCustomizations:
+      - action: INSERT_AFTER
+        job: release
+        stepId: setup-jdks
+        content:
+          name: Install CDK
+          id: install-cdk
+          run: npm install -g aws-cdk
+      - action: INSERT_AFTER
+        job: release
+        stepId: build
+        content:
+          name: Synthesize CloudFormation template
+          id: synthesize
+          run: cdk synthesize --json > target/exasolCloudwatchDashboard.json
+      
