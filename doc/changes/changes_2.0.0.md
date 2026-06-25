@@ -1,4 +1,4 @@
-# Cloudwatch Dashboard Examples 2.0.0, released 2026-06-24
+# Cloudwatch Dashboard Examples 2.0.0, released 2026-06-25
 
 Code name: Migrate to Java 17
 
