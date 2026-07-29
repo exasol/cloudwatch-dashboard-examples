@@ -4,6 +4,8 @@ sources:
     artifacts:
     - target/exasolCloudwatchDashboard.json
 
+excludes:
+  - "E-PK-CORE-18: Outdated content: '.github/zizmor.yml'"
 build:
   workflows:
   - name: ci-build.yml
@@ -39,4 +41,3 @@ build:
           name: Synthesize CloudFormation template
           id: synthesize
           run: cdk synthesize --json > target/exasolCloudwatchDashboard.json
-      
