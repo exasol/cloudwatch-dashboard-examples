@@ -1,4 +1,4 @@
-# Cloudwatch Dashboard Examples 2.0.1, released 2026-??-??
+# Cloudwatch Dashboard Examples 2.0.1, released 2026-07-29
 
 Code name: Fixed vulnerabilities CVE-2026-54515, CVE-2026-59889
 
@@ -30,7 +30,8 @@ Jackson Databind -  Authorization bypass on JsonView Setter/Field
 
 ### Compile Dependency Updates
 
-* Updated `software.amazon.awscdk:aws-cdk-lib:2.260.0` to `2.261.0`
+* Updated `software.amazon.awscdk:aws-cdk-lib:2.260.0` to `2.262.1`
+* Updated `software.constructs:constructs:10.6.0` to `10.7.1`
 
 ### Test Dependency Updates
 
@@ -38,4 +39,11 @@ Jackson Databind -  Authorization bypass on JsonView Setter/Field
 
 ### Plugin Dependency Updates
 
-* Updated `com.exasol:project-keeper-maven-plugin:5.6.2` to `5.7.3`
+* Updated `com.exasol:error-code-crawler-maven-plugin:2.0.7` to `2.1.0`
+* Updated `com.exasol:project-keeper-maven-plugin:5.6.2` to `5.7.4`
+* Removed `com.exasol:quality-summarizer-maven-plugin:0.2.1`
+* Updated `org.apache.maven.plugins:maven-enforcer-plugin:3.6.2` to `3.6.3`
+* Updated `org.apache.maven.plugins:maven-site-plugin:3.21.0` to `3.22.0`
+* Updated `org.apache.maven.plugins:maven-surefire-plugin:3.5.5` to `3.5.6`
+* Updated `org.jacoco:jacoco-maven-plugin:0.8.14` to `0.8.15`
+* Updated `org.sonarsource.scanner.maven:sonar-maven-plugin:5.5.0.6356` to `5.7.0.6970`

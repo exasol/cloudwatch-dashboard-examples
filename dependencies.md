@@ -31,13 +31,12 @@
 | [duplicate-finder-maven-plugin Maven Mojo][19]          | [Apache License 2.0][20]                    |
 | [Apache Maven Artifact Plugin][21]                      | [Apache-2.0][8]                             |
 | [JaCoCo :: Maven Plugin][22]                            | [EPL-2.0][23]                               |
-| [Quality Summarizer Maven Plugin][24]                   | [MIT License][25]                           |
-| [error-code-crawler-maven-plugin][26]                   | [MIT License][27]                           |
-| [Git Commit Id Maven Plugin][28]                        | [GNU Lesser General Public License 3.0][29] |
-| [Apache Maven Clean Plugin][30]                         | [Apache-2.0][8]                             |
-| [Apache Maven Resources Plugin][31]                     | [Apache-2.0][8]                             |
-| [Apache Maven Install Plugin][32]                       | [Apache-2.0][8]                             |
-| [Apache Maven Site Plugin][33]                          | [Apache-2.0][8]                             |
+| [error-code-crawler-maven-plugin][24]                   | [MIT License][25]                           |
+| [Git Commit Id Maven Plugin][26]                        | [GNU Lesser General Public License 3.0][27] |
+| [Apache Maven Clean Plugin][28]                         | [Apache-2.0][8]                             |
+| [Apache Maven Resources Plugin][29]                     | [Apache-2.0][8]                             |
+| [Apache Maven Install Plugin][30]                       | [Apache-2.0][8]                             |
+| [Apache Maven Site Plugin][31]                          | [Apache-2.0][8]                             |
 
 [0]: https://github.com/aws/aws-cdk
 [1]: https://www.apache.org/licenses/LICENSE-2.0
@@ -63,13 +62,11 @@
 [21]: https://maven.apache.org/plugins/maven-artifact-plugin/
 [22]: https://www.jacoco.org/jacoco/trunk/doc/maven.html
 [23]: https://www.eclipse.org/legal/epl-2.0/
-[24]: https://github.com/exasol/quality-summarizer-maven-plugin/
-[25]: https://github.com/exasol/quality-summarizer-maven-plugin/blob/main/LICENSE
-[26]: https://github.com/exasol/error-code-crawler-maven-plugin/
-[27]: https://github.com/exasol/error-code-crawler-maven-plugin/blob/main/LICENSE
-[28]: https://github.com/git-commit-id/git-commit-id-maven-plugin
-[29]: http://www.gnu.org/licenses/lgpl-3.0.txt
-[30]: https://maven.apache.org/plugins/maven-clean-plugin/
-[31]: https://maven.apache.org/plugins/maven-resources-plugin/
-[32]: https://maven.apache.org/plugins/maven-install-plugin/
-[33]: https://maven.apache.org/plugins/maven-site-plugin/
+[24]: https://github.com/exasol/error-code-crawler-maven-plugin/
+[25]: https://github.com/exasol/error-code-crawler-maven-plugin/blob/main/LICENSE
+[26]: https://github.com/git-commit-id/git-commit-id-maven-plugin
+[27]: http://www.gnu.org/licenses/lgpl-3.0.txt
+[28]: https://maven.apache.org/plugins/maven-clean-plugin/
+[29]: https://maven.apache.org/plugins/maven-resources-plugin/
+[30]: https://maven.apache.org/plugins/maven-install-plugin/
+[31]: https://maven.apache.org/plugins/maven-site-plugin/
