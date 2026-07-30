@@ -1,4 +1,4 @@
-# Cloudwatch Dashboard Examples 2.0.1, released 2026-07-29
+# Cloudwatch Dashboard Examples 2.0.1, released 2026-07-30
 
 Code name: Fixed vulnerabilities CVE-2026-54515, CVE-2026-59889
 
