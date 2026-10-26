@@ -4,8 +4,6 @@ sources:
     artifacts:
     - target/exasolCloudwatchDashboard.json
 
-excludes:
-  - "E-PK-CORE-18: Outdated content: '.github/zizmor.yml'"
 build:
   workflows:
   - name: ci-build.yml
@@ -14,16 +12,16 @@ build:
         job: build-and-test
         stepId: setup-java
         content:
-          name: Install CDK
+          name: Install CDK from lockfile
           id: install-cdk
-          run: npm install -g aws-cdk
+          run: npm ci --ignore-scripts
       - action: INSERT_AFTER
         job: build-and-test
         stepId: build-pk-verify
         content:
           name: Synthesize CloudFormation template
           id: synthesize
-          run: cdk synthesize --json > target/exasolCloudwatchDashboard.json
+          run: ./node_modules/.bin/cdk synthesize --json > target/exasolCloudwatchDashboard.json
 
   - name: release.yml
     stepCustomizations:
@@ -31,13 +29,13 @@ build:
         job: release
         stepId: setup-jdks
         content:
-          name: Install CDK
+          name: Install CDK from lockfile
           id: install-cdk
-          run: npm install -g aws-cdk
+          run: npm ci --ignore-scripts
       - action: INSERT_AFTER
         job: release
         stepId: build
         content:
           name: Synthesize CloudFormation template
           id: synthesize
-          run: cdk synthesize --json > target/exasolCloudwatchDashboard.json
+          run: ./node_modules/.bin/cdk synthesize --json > target/exasolCloudwatchDashboard.json
