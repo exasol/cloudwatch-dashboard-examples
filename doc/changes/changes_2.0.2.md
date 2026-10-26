@@ -6,16 +6,6 @@ Code name: Jackson security fixes
 
 This release tracks nine security fixes for `jackson-core` and `jackson-databind`.
 
-- Fixes #34
-- Fixes #35
-- Fixes #37
-- Fixes #38
-- Fixes #39
-- Fixes #40
-- Fixes #42
-- Fixes #43
-- Fixes #45
-
 ## Security
 
 * #37: Fixed CVE-2026-68498 (oversized property names exhaust memory) in dependency `com.fasterxml.jackson.core:jackson-core:jar:2.22.1:compile`
