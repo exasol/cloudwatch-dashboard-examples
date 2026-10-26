@@ -30,6 +30,15 @@ This release tracks nine security fixes for `jackson-core` and `jackson-databind
 
 ## Dependency Updates
 
+### Compile Dependency Updates
+
+* Updated `software.amazon.awscdk:aws-cdk-lib:2.262.1` to `2.274.0`
+* Updated `software.constructs:constructs:10.7.1` to `10.8.1`
+
+### Test Dependency Updates
+
+* Updated `org.junit.jupiter:junit-jupiter:6.1.2` to `6.1.3`
+
 ### Plugin Dependency Updates
 
 * Updated `com.exasol:error-code-crawler-maven-plugin:2.1.0` to `2.1.2`
@@ -40,6 +49,7 @@ This release tracks nine security fixes for `jackson-core` and `jackson-databind
 * Updated `org.apache.maven.plugins:maven-install-plugin:3.1.4` to `3.2.0`
 * Updated `org.apache.maven.plugins:maven-surefire-plugin:3.5.6` to `3.6.0`
 * Updated `org.apache.maven.plugins:maven-toolchains-plugin:3.2.0` to `3.3.0`
+* Updated `org.codehaus.mojo:exec-maven-plugin:3.6.3` to `3.6.4`
 * Updated `org.codehaus.mojo:flatten-maven-plugin:1.7.3` to `1.8.0`
 * Updated `org.codehaus.mojo:versions-maven-plugin:2.21.0` to `2.23.0`
 * Updated `org.sonarsource.scanner.maven:sonar-maven-plugin:5.7.0.6970` to `5.8.0.7211`
