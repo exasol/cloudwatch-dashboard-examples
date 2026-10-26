@@ -14,7 +14,7 @@ build:
         content:
           name: Install CDK from lockfile
           id: install-cdk
-          run: npm ci
+          run: npm ci --ignore-scripts
       - action: INSERT_AFTER
         job: build-and-test
         stepId: build-pk-verify
@@ -31,7 +31,7 @@ build:
         content:
           name: Install CDK from lockfile
           id: install-cdk
-          run: npm ci
+          run: npm ci --ignore-scripts
       - action: INSERT_AFTER
         job: release
         stepId: build

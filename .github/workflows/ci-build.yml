@@ -60,7 +60,7 @@ jobs:
       - {
         name: Install CDK from lockfile,
         id: install-cdk,
-        run: npm ci
+        run: npm ci --ignore-scripts
       }
       - {
         name: Prepare Maven Wrapper,
