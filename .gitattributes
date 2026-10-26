@@ -18,6 +18,7 @@ SECURITY.md                                linguist-generated=true
 .settings/org.eclipse.jdt.ui.prefs         linguist-generated=true
 src/test/resources/logging.properties      linguist-generated=true
 .github/zizmor.yml linguist-generated=true
+package-lock.json linguist-generated=true
 /mvnw linguist-generated=true
 /mvnw.cmd linguist-generated=true
 /.mvn/wrapper/maven-wrapper.properties linguist-generated=true
