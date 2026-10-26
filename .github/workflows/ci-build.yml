@@ -58,9 +58,9 @@ jobs:
             21
           cache: maven
       - {
-        name: Install CDK,
+        name: Install CDK from lockfile,
         id: install-cdk,
-        run: npm install -g aws-cdk
+        run: npm ci
       }
       - {
         name: Prepare Maven Wrapper,
@@ -90,7 +90,7 @@ jobs:
       - {
         name: Synthesize CloudFormation template,
         id: synthesize,
-        run: cdk synthesize --json > target/exasolCloudwatchDashboard.json
+        run: ./node_modules/.bin/cdk synthesize --json > target/exasolCloudwatchDashboard.json
       }
       - name: Sonar analysis
         id: sonar-analysis
